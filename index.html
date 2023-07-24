@@ -7,9 +7,9 @@
   </head>
   <body class="h-full m-0 font-sans bg-slate-100">
     <div id="app" class="pt-14 mx-5 flex flex-col gap-10 lg:flex-row">
-      <div class="w-full p-6 border-2 border-slate-400 rounded-lg relative">
-        <div class="bg-white rounded-lg absolute ml-auto mr-auto left-0 right-0 bottom-[25px] lg:bottom-[30px] w-[85%]">
-          <span class="flex items-center  justify-center p-2 gap-1">
+      <div class="w-full p-6 border-2 border-slate-400 rounded-lg relative min-h-[90vh]">
+        <div class="bg-white flex items-center justify-center h-11 rounded-lg absolute ml-auto mr-auto left-0 right-0 -top-[24px] w-[85%]">
+          <div class="flex gap-1">
             <svg
               width="30px"
               height="30px"
@@ -30,12 +30,20 @@
                 fill="#1C274C"
               ></svg>
               <span class="text-lg font-medium">Components</span>
-          </span>
+          </div>
+        </div>
+        <div class="pt-6">
+            <h3 class=" text-center text-xl font-medium">Items</h3>
+            <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-2 pt-6">
+                <button class="bg-[#FEF5C3] text-[#8d5e00] py-2 w-full sm:w-2/6 rounded-md">Heading</button>
+                <button class="bg-[#D3F5E4] text-[#007a4d] py-2 w-full sm:w-2/6 rounded-md">Image</button>
+                <button class="bg-[#D5E8F9] text-[#003b83] py-2 w-full sm:w-2/6 rounded-md">Description</button>
+            </div>
         </div>
       </div>
-      <div class="w-full p-6 border-2 border-slate-400 rounded-lg relative">
-        <div class="bg-white rounded-lg absolute ml-auto mr-auto left-0 right-0 bottom-[25px] lg:bottom-[30px] w-[85%]">
-            <span class="flex items-center  justify-center p-2 gap-1">
+      <div class="w-full p-6 border-2 border-slate-400 rounded-lg relative min-h-[90vh">
+        <div class="bg-white flex items-center justify-center h-11 rounded-lg absolute ml-auto mr-auto left-0 right-0 -top-[24px] w-[85%]">
+            <div class="flex gap-1">
                 <svg fill="#1C274C" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                 viewBox="0 0 467.4 467.4" xml:space="preserve">
            <g>
@@ -48,8 +56,8 @@
                    S332.729,242.934,293.286,242.934z"/>
            </g>
            </svg>
-                <span class="text-lg font-medium">Components</span>
-            </span>
+                <span class="text-lg font-medium">Preview</span>
+            </div>
           </div>
       </div>
     </div>
