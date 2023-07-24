@@ -8,6 +8,8 @@
   <body class="h-full m-0 font-sans bg-slate-100">
     <div id="app" class="pt-14 mx-5 flex flex-col gap-10 lg:flex-row">
       <div class="w-full p-6 border-2 border-slate-400 rounded-lg relative min-h-[90vh]">
+
+        <!-- top badge start -->
         <div class="bg-white flex items-center justify-center h-11 rounded-lg absolute ml-auto mr-auto left-0 right-0 -top-[24px] w-[85%]">
           <div class="flex gap-1">
             <svg
@@ -32,14 +34,28 @@
               <span class="text-lg font-medium">Components</span>
           </div>
         </div>
+        <!-- top badge end -->
+
+        <!-- Heading input section start -->
+        <div class=" p-5 border border-slate-300 rounded-lg relative mt-10">
+            <p class=" inline-block bg-slate-300 px-2 py-1 text-xs font-medium rounded-lg absolute -top-[12px] left-[22px]">Heading</p>
+            <button class="absolute -top-[18px] -right-[14px] bg-white text-red-600 font-bold rounded-full p-2">&#10060;</button>
+            <div class="pt-5">
+                <input type="text" placeholder="Write a heading" class="w-full focus:outline-slate-700 py-1 px-3" />
+            </div>
+        </div>
+        <!-- Heading input section end -->
+
+        <!-- Button section start -->
         <div class="pt-6">
             <h3 class=" text-center text-xl font-medium">Items</h3>
-            <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-2 pt-6">
+            <div id="buttons" class="w-full flex flex-col sm:flex-row items-center justify-center gap-2 pt-6">
                 <button class="bg-[#FEF5C3] text-[#8d5e00] py-2 w-full sm:w-2/6 rounded-md">Heading</button>
                 <button class="bg-[#D3F5E4] text-[#007a4d] py-2 w-full sm:w-2/6 rounded-md">Image</button>
                 <button class="bg-[#D5E8F9] text-[#003b83] py-2 w-full sm:w-2/6 rounded-md">Description</button>
             </div>
         </div>
+        <!-- Button section ends -->
       </div>
       <div class="w-full p-6 border-2 border-slate-400 rounded-lg relative min-h-[90vh">
         <div class="bg-white flex items-center justify-center h-11 rounded-lg absolute ml-auto mr-auto left-0 right-0 -top-[24px] w-[85%]">
