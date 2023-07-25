@@ -60,7 +60,7 @@
             <input
               type="text"
               placeholder="Write a heading"
-              class="w-full focus:outline-slate-700 py-1 px-3"
+              class="w-full h-12 focus:outline-slate-700 py-1 px-3 rounded-lg border-2 border-slate-200"
             />
           </div>
           <div
@@ -151,6 +151,72 @@
           </div>
         </div>
         <!-- Heading input section end -->
+
+        <!-- Image upload section start -->
+        <div class="p-5 border border-slate-300 rounded-lg relative mt-10">
+          <p
+            class="inline-block bg-slate-300 px-2 py-1 text-xs font-medium rounded-lg absolute -top-[12px] left-[22px]"
+          >
+            Poster Image
+          </p>
+          <button
+            class="absolute -top-[18px] -right-[14px] bg-white text-red-600 font-bold rounded-full p-2"
+          >
+            &#10060;
+          </button>
+          <div class="w-full">
+            <label
+              class="flex justify-center items-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none p-4"
+            >
+              <span class="flex flex-col items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-gray-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                  />
+                </svg>
+                <p class="text-gray-600">
+                  <span class="font-medium">Click to upload</span> or Drag and
+                  drop
+                </p>
+                <p class="text-gray-600 font-medium text-xs">
+                  SVG JPG PNG or GIF (MAX, 800px X 400px)
+                </p>
+              </span>
+              <input type="file" name="file_upload" class="hidden" />
+            </label>
+          </div>
+        </div>
+        <!-- Image upload section end -->
+
+        <!-- Input description section start -->
+        <div class="p-5 border border-slate-300 rounded-lg relative mt-10">
+          <p
+            class="inline-block bg-slate-300 px-2 py-1 text-xs font-medium rounded-lg absolute -top-[12px] left-[22px]"
+          >
+            Description
+          </p>
+          <button
+            class="absolute -top-[18px] -right-[14px] bg-white text-red-600 font-bold rounded-full p-2"
+          >
+            &#10060;
+          </button>
+          <textarea
+            name=""
+            id=""
+            placeholder="Write something"
+            class="w-full h-[100px] p-4 resize-none rounded-lg border-2 border-slate-200"
+          ></textarea>
+        </div>
+        <!-- Input description section end -->
 
         <!-- Button section start -->
         <div class="pt-6">
