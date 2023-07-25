@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="h-full m-0 font-sans bg-slate-100">
@@ -47,7 +46,10 @@
         <!-- top badge end -->
 
         <!-- Heading input section start -->
-        <div class="p-5 border border-slate-300 rounded-lg relative mt-10">
+        <div
+          id="input-heading-container"
+          class="p-5 border border-slate-300 rounded-lg relative mt-10"
+        >
           <p
             class="inline-block bg-slate-300 px-2 py-1 text-xs font-medium rounded-lg absolute -top-[12px] left-[22px]"
           >
@@ -215,7 +217,7 @@
             name=""
             id=""
             placeholder="Write something"
-            class="w-full h-[100px] p-4 resize-none rounded-lg border-2 border-slate-200"
+            class="w-full h-[100px] p-4 resize-none rounded-lg border-2 border-slate-200 focus:outline-slate-700"
           ></textarea>
         </div>
         <!-- Input description section end -->
@@ -227,13 +229,22 @@
             id="buttons"
             class="w-full flex flex-col sm:flex-row items-center justify-center gap-2 pt-6"
           >
-            <button class="bg-[#FEF5C3] text-[#8d5e00] py-2 w-full rounded-md">
+            <button
+              id="heading-btn"
+              class="bg-[#FEF5C3] text-[#8d5e00] py-2 w-full rounded-md"
+            >
               Heading
             </button>
-            <button class="bg-[#D3F5E4] text-[#007a4d] py-2 w-full rounded-md">
+            <button
+              id="imageUploader-btn"
+              class="bg-[#D3F5E4] text-[#007a4d] py-2 w-full rounded-md"
+            >
               Image
             </button>
-            <button class="bg-[#D5E8F9] text-[#003b83] py-2 w-full rounded-md">
+            <button
+              id="description-btn"
+              class="bg-[#D5E8F9] text-[#003b83] py-2 w-full rounded-md"
+            >
               Description
             </button>
           </div>
@@ -279,7 +290,13 @@
         </div>
         <div class="h-full flex flex-col items-start">
           <div id="capture" class="pb-5 flex flex-col gap-10 px-5">
-            <h3 class="mt-16 text-5xl xl:text-5xl">Some text will be here</h3>
+            <h3
+              id="preview-title"
+              class="font-medium text-5xl mt-10 w-[90%] inline-block break-all"
+            >
+              Lorem ipsum dolor sit
+            </h3>
+
             <img src="./flower.jpg" class="w-[70%]" alt="" />
             <p class="font-medium text-lg w-[90%]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
@@ -297,7 +314,6 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="js/download.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>
