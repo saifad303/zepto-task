@@ -72,6 +72,7 @@
           >
             <div class="flex justify-center items-center mb-1">
               <button
+                id="text-align-left"
                 class="bg-white py-1 px-3 font-medium border rounded-l-lg flex items-center justify-center gap-1"
               >
                 <svg
@@ -91,6 +92,7 @@
                 <span>Left</span>
               </button>
               <button
+                id="text-align-center"
                 class="bg-white py-1 px-3 font-medium border flex items-center justify-center gap-1"
               >
                 <svg
@@ -113,6 +115,7 @@
                 <span>Center</span>
               </button>
               <button
+                id="text-align-right"
                 class="bg-white py-1 px-3 font-medium border rounded-r-lg flex items-center justify-center gap-1"
               >
                 <span>Right</span>
@@ -134,21 +137,24 @@
             </div>
             <div class="flex justify-center items-center mb-1">
               <button
-                class="bg-white py-1 px-3 font-medium border rounded-l-lg flex items-center justify-center gap-2"
+                id="blue-color-btn"
+                class="bg-white py-1 px-3 font-medium border rounded-l-lg flex items-center gap-1"
               >
-                <div class="bg-blue-700 w-4 h-4 rounded-full"></div>
-                <span>Blue</span>
+                <div class="w-5 h-5 bg-blue-700 rounded-full"></div>
+                <span> Blue </span>
               </button>
               <button
-                class="bg-white py-1 px-3 font-medium border flex items-center justify-center gap-2"
+                id="black-color-btn"
+                class="bg-white py-1 px-3 font-medium border flex items-center gap-1"
               >
-                <div class="bg-black w-4 h-4 rounded-full"></div>
+                <div class="w-5 h-5 bg-black rounded-full"></div>
                 <span>Black</span>
               </button>
               <button
-                class="bg-white py-1 px-3 font-medium border rounded-r-lg flex items-center justify-center gap-2"
+                id="green-color-btn"
+                class="bg-white py-1 px-3 font-medium border rounded-r-lg flex items-center gap-1"
               >
-                <div class="bg-green-700 w-4 h-4 rounded-full"></div>
+                <div class="w-5 h-5 bg-green-700 rounded-full"></div>
                 <span>Green</span>
               </button>
             </div>
@@ -195,7 +201,12 @@
                   SVG JPG PNG or GIF (MAX, 800px X 400px)
                 </p>
               </span>
-              <input type="file" name="file_upload" class="hidden" />
+              <input
+                type="file"
+                name="file_upload"
+                id="img-upload"
+                class="hidden"
+              />
             </label>
           </div>
         </div>
@@ -292,12 +303,12 @@
           <div id="capture" class="pb-5 flex flex-col gap-10 px-5">
             <h3
               id="preview-title"
-              class="font-medium text-5xl mt-10 w-[90%] inline-block break-all"
+              class="font-medium text-4xl mt-10 w-[90%] inline-block break-all"
             >
               Lorem ipsum dolor sit
             </h3>
 
-            <img src="./flower.jpg" class="w-[70%]" alt="" />
+            <img src="./flower.jpg" id="show-img-id" class="w-[70%]" alt="" />
             <p class="font-medium text-lg w-[90%]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
               officia quas ex nemo unde dolorem error sunt assumenda, quaerat
