@@ -15,6 +15,15 @@ const blueColorBtn = document.getElementById("blue-color-btn");
 const blackColorBtn = document.getElementById("black-color-btn");
 const showImgId = document.getElementById("show-img-id");
 const imgUpload = document.getElementById("img-upload");
+const inputDescription = document.getElementById("input-description");
+const outputDescription = document.getElementById("output-description");
+const descriptionCloseBtn = document.getElementById("description-close-btn");
+const imageCloseBtn = document.getElementById("image-close-btn");
+const headingCloseBtn = document.getElementById("heading-close-btn");
+const inputDescriptionContainer = document.getElementById(
+  "input-description-container"
+);
+const inputImgContainer = document.getElementById("input-img-container");
 
 // image download script
 downloadButton.addEventListener("click", function () {
@@ -27,8 +36,6 @@ downloadButton.addEventListener("click", function () {
     link.click();
   });
 });
-
-// headingBtn.addEventListener("click", function () {});
 
 inputHeadingContainer.addEventListener("input", function (e) {
   console.log(e.target.value);
@@ -83,3 +90,21 @@ imgUpload.addEventListener("change", function (event) {
     reader.readAsDataURL(imgFile);
   }
 });
+
+inputDescription.addEventListener("input", function (e) {
+  outputDescription.innerText = e.target.value;
+});
+
+headingCloseBtn.addEventListener("click", function () {
+  inputHeadingContainer.classList.add("hidden");
+});
+
+imageCloseBtn.addEventListener("click", function () {
+  inputImgContainer.classList.add("hidden");
+});
+
+descriptionCloseBtn.addEventListener("click", function () {
+  inputDescriptionContainer.classList.add("hidden");
+});
+
+headingBtn.addEventListener("click", function () {});
