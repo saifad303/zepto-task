@@ -38,7 +38,6 @@ downloadButton.addEventListener("click", function () {
 });
 
 inputHeadingContainer.addEventListener("input", function (e) {
-  console.log(e.target.value);
   previewTitle.innerHTML = e.target.value;
 });
 
@@ -97,14 +96,30 @@ inputDescription.addEventListener("input", function (e) {
 
 headingCloseBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.add("hidden");
+  headingBtn.classList.remove("hidden");
 });
 
 imageCloseBtn.addEventListener("click", function () {
   inputImgContainer.classList.add("hidden");
+  imageUploaderBtn.classList.remove("hidden");
 });
 
 descriptionCloseBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.add("hidden");
+  descriptionBtn.classList.remove("hidden");
 });
 
-headingBtn.addEventListener("click", function () {});
+headingBtn.addEventListener("click", function () {
+  inputHeadingContainer.classList.remove("hidden");
+  this.classList.add("hidden");
+});
+
+imageUploaderBtn.addEventListener("click", function () {
+  inputImgContainer.classList.remove("hidden");
+  this.classList.add("hidden");
+});
+
+descriptionBtn.addEventListener("click", function () {
+  inputDescriptionContainer.classList.remove("hidden");
+  this.classList.add("hidden");
+});
