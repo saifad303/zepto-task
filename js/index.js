@@ -24,6 +24,7 @@ const inputDescriptionContainer = document.getElementById(
   "input-description-container"
 );
 const inputImgContainer = document.getElementById("input-img-container");
+const dropZone = document.getElementById("dropZone");
 
 // image download script
 downloadButton.addEventListener("click", function () {
@@ -79,6 +80,20 @@ blackColorBtn.addEventListener("click", function () {
 
 imgUpload.addEventListener("change", function (event) {
   const imgFile = event.target.files[0];
+  showImage(imgFile);
+});
+
+inputImgContainer.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+inputImgContainer.addEventListener("drop", function (e) {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  showImage(file);
+});
+
+function showImage(imgFile) {
   const reader = new FileReader();
 
   reader.onload = function () {
@@ -88,7 +103,7 @@ imgUpload.addEventListener("change", function (event) {
   if (imgFile) {
     reader.readAsDataURL(imgFile);
   }
-});
+}
 
 inputDescription.addEventListener("input", function (e) {
   outputDescription.innerText = e.target.value;
