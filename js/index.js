@@ -85,10 +85,32 @@ imgUpload.addEventListener("change", function (event) {
 
 inputImgContainer.addEventListener("dragover", (e) => {
   e.preventDefault();
+  inputImgContainer.classList.add(
+    "border-2",
+    "border-blue-500",
+    "drop-shadow-2xl"
+  );
+  inputImgContainer.classList.remove("border", "border-slate-300");
+});
+
+inputImgContainer.addEventListener("dragleave", (e) => {
+  e.preventDefault();
+  inputImgContainer.classList.add("border", "border-slate-300");
+  inputImgContainer.classList.remove(
+    "border-2",
+    "border-blue-500",
+    "drop-shadow-2xl"
+  );
 });
 
 inputImgContainer.addEventListener("drop", function (e) {
   e.preventDefault();
+  inputImgContainer.classList.add("border", "border-slate-300");
+  inputImgContainer.classList.remove(
+    "border-2",
+    "border-blue-500",
+    "drop-shadow-2xl"
+  );
   const file = e.dataTransfer.files[0];
   showImage(file);
 });
