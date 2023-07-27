@@ -25,18 +25,36 @@ const inputDescriptionContainer = document.getElementById(
 );
 const inputImgContainer = document.getElementById("input-img-container");
 const dropZone = document.getElementById("dropZone");
+const canvas = document.getElementById("canvas");
+const itemsHeading = document.getElementById("items-heading");
 
-// image download script
 downloadButton.addEventListener("click", function () {
   html2canvas(capture).then(function (canvas) {
     const imgData = canvas.toDataURL("myImage/png");
-
     const link = document.createElement("a");
     link.href = imgData;
     link.download = "myImage.png";
     link.click();
   });
 });
+
+function itemsHeadingVisibility() {
+  const headingBtnClasses = [...headingBtn.classList];
+  const imageUploaderBtnClasses = [...imageUploaderBtn.classList];
+  const descriptionBtnClasses = [...descriptionBtn.classList];
+
+  if (
+    headingBtnClasses.includes("hidden") &&
+    imageUploaderBtnClasses.includes("hidden") &&
+    descriptionBtnClasses.includes("hidden")
+  ) {
+    itemsHeading.classList.add("hidden");
+    return;
+  }
+
+  itemsHeading.classList.remove("hidden");
+  return;
+}
 
 inputHeadingContainer.addEventListener("input", function (e) {
   previewTitle.innerHTML = e.target.value;
@@ -134,29 +152,35 @@ inputDescription.addEventListener("input", function (e) {
 headingCloseBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.add("hidden");
   headingBtn.classList.remove("hidden");
+  itemsHeadingVisibility();
 });
 
 imageCloseBtn.addEventListener("click", function () {
   inputImgContainer.classList.add("hidden");
   imageUploaderBtn.classList.remove("hidden");
+  itemsHeadingVisibility();
 });
 
 descriptionCloseBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.add("hidden");
   descriptionBtn.classList.remove("hidden");
+  itemsHeadingVisibility();
 });
 
 headingBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.remove("hidden");
   this.classList.add("hidden");
+  itemsHeadingVisibility();
 });
 
 imageUploaderBtn.addEventListener("click", function () {
   inputImgContainer.classList.remove("hidden");
   this.classList.add("hidden");
+  itemsHeadingVisibility();
 });
 
 descriptionBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.remove("hidden");
   this.classList.add("hidden");
+  itemsHeadingVisibility();
 });
