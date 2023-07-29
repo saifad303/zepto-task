@@ -27,6 +27,7 @@ const inputImgContainer = document.getElementById("input-img-container");
 const dropZone = document.getElementById("dropZone");
 const canvas = document.getElementById("canvas");
 const itemsHeading = document.getElementById("items-heading");
+const btnContainer = document.getElementById("btn-container");
 
 downloadButton.addEventListener("click", function () {
   html2canvas(capture).then(function (canvas) {
@@ -38,21 +39,37 @@ downloadButton.addEventListener("click", function () {
   });
 });
 
-function itemsHeadingVisibility() {
-  const headingBtnClasses = [...headingBtn.classList];
-  const imageUploaderBtnClasses = [...imageUploaderBtn.classList];
-  const descriptionBtnClasses = [...descriptionBtn.classList];
+let btnCount = 0;
 
-  if (
-    headingBtnClasses.includes("hidden") &&
-    imageUploaderBtnClasses.includes("hidden") &&
-    descriptionBtnClasses.includes("hidden")
-  ) {
-    itemsHeading.classList.add("hidden");
+// function itemsHeadingVisibility() {
+//   const headingBtnClasses = [...headingBtn.classList];
+//   const imageUploaderBtnClasses = [...imageUploaderBtn.classList];
+//   const descriptionBtnClasses = [...descriptionBtn.classList];
+
+//   if (
+//     headingBtnClasses.includes("hidden") &&
+//     imageUploaderBtnClasses.includes("hidden") &&
+//     descriptionBtnClasses.includes("hidden")
+//   ) {
+//     itemsHeading.classList.add("hidden");
+//     return;
+//   }
+
+//   itemsHeading.classList.remove("hidden");
+//   return;
+// }
+
+function componentButtonsVisibility() {
+  const invisibilityText = document.getElementById("invisibility-text");
+
+  if (btnCount >= 2) {
+    btnContainer.classList.add("hidden");
+    invisibilityText.classList.remove("hidden");
     return;
   }
 
-  itemsHeading.classList.remove("hidden");
+  invisibilityText.classList.add("hidden");
+  btnContainer.classList.remove("hidden");
   return;
 }
 
@@ -152,35 +169,53 @@ inputDescription.addEventListener("input", function (e) {
 headingCloseBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.add("hidden");
   headingBtn.classList.remove("hidden");
-  itemsHeadingVisibility();
+  previewTitle.classList.add("hidden");
+  // itemsHeadingVisibility();
+  btnCount--;
+  componentButtonsVisibility();
 });
 
 imageCloseBtn.addEventListener("click", function () {
   inputImgContainer.classList.add("hidden");
   imageUploaderBtn.classList.remove("hidden");
-  itemsHeadingVisibility();
+  showImgId.classList.add("hidden");
+  // itemsHeadingVisibility();
+  btnCount--;
+  componentButtonsVisibility();
 });
 
 descriptionCloseBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.add("hidden");
   descriptionBtn.classList.remove("hidden");
-  itemsHeadingVisibility();
+  outputDescription.classList.add("hidden");
+  // itemsHeadingVisibility();
+  btnCount--;
+  componentButtonsVisibility();
 });
 
 headingBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.remove("hidden");
   this.classList.add("hidden");
-  itemsHeadingVisibility();
+  previewTitle.classList.remove("hidden");
+  // itemsHeadingVisibility();
+  btnCount++;
+  componentButtonsVisibility();
 });
 
 imageUploaderBtn.addEventListener("click", function () {
   inputImgContainer.classList.remove("hidden");
   this.classList.add("hidden");
-  itemsHeadingVisibility();
+  showImgId.classList.remove("hidden");
+  // itemsHeadingVisibility();
+  btnCount++;
+  componentButtonsVisibility();
 });
 
 descriptionBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.remove("hidden");
   this.classList.add("hidden");
-  itemsHeadingVisibility();
+  outputDescription.classList.remove("hidden");
+  // itemsHeadingVisibility();
+  btnCount++;
+  componentButtonsVisibility();
 });
