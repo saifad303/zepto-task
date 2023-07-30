@@ -40,19 +40,21 @@ downloadButton.addEventListener("click", function () {
   });
 });
 
-let btnCount = 0;
+function itemsHeadingVisibility() {
+  const headingBtnClasses = [...headingBtn.classList];
+  const imageUploaderBtnClasses = [...imageUploaderBtn.classList];
+  const descriptionBtnClasses = [...descriptionBtn.classList];
 
-function componentButtonsVisibility() {
-  const invisibilityText = document.getElementById("invisibility-text");
-
-  if (btnCount >= 2) {
-    btnContainer.classList.add("hidden");
-    invisibilityText.classList.remove("hidden");
+  if (
+    headingBtnClasses.includes("hidden") &&
+    imageUploaderBtnClasses.includes("hidden") &&
+    descriptionBtnClasses.includes("hidden")
+  ) {
+    itemsHeading.classList.add("hidden");
     return;
   }
 
-  invisibilityText.classList.add("hidden");
-  btnContainer.classList.remove("hidden");
+  itemsHeading.classList.remove("hidden");
   return;
 }
 
@@ -153,54 +155,42 @@ headingCloseBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.add("hidden");
   headingBtn.classList.remove("hidden");
   previewTitle.classList.add("hidden");
-  // itemsHeadingVisibility();
-  btnCount--;
-  componentButtonsVisibility();
+  itemsHeadingVisibility();
 });
 
 imageCloseBtn.addEventListener("click", function () {
   inputImgContainer.classList.add("hidden");
   imageUploaderBtn.classList.remove("hidden");
   showImgId.classList.add("hidden");
-  // itemsHeadingVisibility();
-  btnCount--;
-  componentButtonsVisibility();
+  itemsHeadingVisibility();
 });
 
 descriptionCloseBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.add("hidden");
   descriptionBtn.classList.remove("hidden");
   outputDescription.classList.add("hidden");
-  // itemsHeadingVisibility();
-  btnCount--;
-  componentButtonsVisibility();
+  itemsHeadingVisibility();
 });
 
 headingBtn.addEventListener("click", function () {
   inputHeadingContainer.classList.remove("hidden");
   this.classList.add("hidden");
   previewTitle.classList.remove("hidden");
-  // itemsHeadingVisibility();
-  btnCount++;
-  componentButtonsVisibility();
+  itemsHeadingVisibility();
 });
 
 imageUploaderBtn.addEventListener("click", function () {
   inputImgContainer.classList.remove("hidden");
   this.classList.add("hidden");
   showImgId.classList.remove("hidden");
-  // itemsHeadingVisibility();
-  btnCount++;
-  componentButtonsVisibility();
+  itemsHeadingVisibility();
 });
 
 descriptionBtn.addEventListener("click", function () {
   inputDescriptionContainer.classList.remove("hidden");
   this.classList.add("hidden");
   outputDescription.classList.remove("hidden");
-  // itemsHeadingVisibility();
-  btnCount++;
-  componentButtonsVisibility();
+  itemsHeadingVisibility();
 });
 
 function siteTemplate() {
