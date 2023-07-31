@@ -26,19 +26,34 @@ const inputDescriptionContainer = document.getElementById(
 );
 const inputImgContainer = document.getElementById("input-img-container");
 const dropZone = document.getElementById("dropZone");
-const canvas = document.getElementById("canvas");
 const itemsHeading = document.getElementById("items-heading");
 const btnContainer = document.getElementById("btn-container");
 
 downloadButton.addEventListener("click", function () {
-  html2canvas(capture).then(function (canvas) {
-    const imgData = canvas.toDataURL("myImage/png");
-    const link = document.createElement("a");
-    link.href = imgData;
-    link.download = "myImage.png";
-    link.click();
-  });
+  takeScreenshotAndDownload(capture);
 });
+
+function takeScreenshotAndDownload(element) {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+
+  // Set canvas dimensions to match the container
+  canvas.width = element.offsetWidth;
+  canvas.height = element.offsetHeight;
+
+  // Draw the content of the container on the canvas
+  context.drawFocusIfNeeded(element);
+
+  // Create an image from the canvas
+  const screenshot = new Image();
+  screenshot.src = canvas.toDataURL("image/png");
+
+  // Create a link and trigger the download
+  const downloadLink = document.createElement("a");
+  downloadLink.href = screenshot.src;
+  downloadLink.download = "screenshot.png";
+  downloadLink.click();
+}
 
 function itemsHeadingVisibility() {
   const headingBtnClasses = [...headingBtn.classList];
@@ -547,18 +562,21 @@ function siteTemplate() {
 
   const appDivSecondChildOutputSection = `
     <div class="h-full flex flex-col items-start">
-        <div id="capture" class="pb-5 flex flex-col gap-10 px-5 w-full">
-        <h3
-            id="preview-title"
-            class="font-medium text-4xl mt-10 w-[90%] inline-block break-all"
-        ></h3>
-    
-        <img src="" id="show-img-id" class="w-[70%]" alt="" />
-        <p
-            id="output-description"
-            class="font-medium text-lg w-[90%] break-all"
-        ></p>
-        </div>
+        
+          <div id="capture" class="pb-5 flex flex-col gap-10 px-5 w-full">
+          <h3
+              id="preview-title"
+              class="font-medium text-4xl mt-10 w-[90%] inline-block break-all"
+          ></h3>
+      
+          <img src="" id="show-img-id" class="w-[70%]" alt="" />
+          <p
+              id="output-description"
+              class="font-medium text-lg w-[90%] break-all"
+          ></p>
+          </div>
+        
+        
         <button
         id="downloadButton"
         class="mt-auto bg-white text-xl font-medium py-2 px-3 border rounded-lg"
