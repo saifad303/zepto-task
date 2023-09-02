@@ -30,30 +30,17 @@ const itemsHeading = document.getElementById("items-heading");
 const btnContainer = document.getElementById("btn-container");
 
 downloadButton.addEventListener("click", function () {
-  takeScreenshotAndDownload(capture);
+  html2canvas(capture).then(function (canvas) {
+    // Convert the canvas to an image URL
+    const imgData = canvas.toDataURL("image/png");
+
+    // Create a temporary link element and download the image
+    const link = document.createElement("a");
+    link.href = imgData;
+    link.download = "screenshot.png";
+    link.click();
+  });
 });
-
-function takeScreenshotAndDownload(element) {
-  const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
-
-  // Set canvas dimensions to match the container
-  canvas.width = element.offsetWidth;
-  canvas.height = element.offsetHeight;
-
-  // Draw the content of the container on the canvas
-  context.drawFocusIfNeeded(element);
-
-  // Create an image from the canvas
-  const screenshot = new Image();
-  screenshot.src = canvas.toDataURL("image/png");
-
-  // Create a link and trigger the download
-  const downloadLink = document.createElement("a");
-  downloadLink.href = screenshot.src;
-  downloadLink.download = "screenshot.png";
-  downloadLink.click();
-}
 
 function itemsHeadingVisibility() {
   const headingBtnClasses = [...headingBtn.classList];
